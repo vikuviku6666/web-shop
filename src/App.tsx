@@ -1,13 +1,18 @@
 import React from 'react';
+import './App.css';
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
 
-
-function App() {
+const App: React.FC = () => {
   return (
-    <div>
-      <p>Hi To react</p>
+    <div className="layout">
+      <Header/>
+      <Main/>
+      <Footer/>
     </div>
   );
-}
+};
 
 export default App;
