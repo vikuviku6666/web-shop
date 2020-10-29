@@ -1,23 +1,20 @@
-import React from 'react';
-import {Div, A} from './../styles/Header'
+import React from "react";
+import { Top } from "../styles/HeaderStyle";
 
-
-
-const Header: React.FC = () =>{
-    return (
-      <Div>
-        <span>
-          <A>Home</A>
-          <A>About</A>
-          <A>Movies</A>
-            </span>
-            <span>
-        <A>Login</A>
-        <A>Sigup</A>
-            </span>  
-       
-      </Div>
-    );
-}
+const Header: React.FC = () => {
+  return (
+    <Top>
+      <span>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Movies</a>
+      </span>
+      <span>
+        <a href="#">Login</a>
+        <a href="#">Sigup</a>
+      </span>
+    </Top>
+  );
+};
 
 export default Header;

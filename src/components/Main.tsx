@@ -1,11 +1,12 @@
 import React from "react";
-import styled from "styled-components";
+import { Middle } from '../styles/MiddleStyle';
+
 
 
 
 const Main: React.FC = () => {
   return (
-    <h1>Main</h1>
+    <Middle>Main</Middle>
   );
 };
 
