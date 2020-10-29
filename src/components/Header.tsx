@@ -1,17 +1,17 @@
 import React from "react";
 import { Top } from "../styles/HeaderStyle";
-
+import { Link } from "react-router-dom";
 const Header: React.FC = () => {
   return (
     <Top>
       <span>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Movies</a>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/categories">Categories</Link>
       </span>
       <span>
-        <a href="#">Login</a>
-        <a href="#">Sigup</a>
+        <Link to="/login">Login</Link>
+        <Link to="/sigup">Sigup</Link>
       </span>
     </Top>
   );
