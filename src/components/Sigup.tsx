@@ -1,6 +1,6 @@
 import React from "react";
 
-const Sigup : React.FC = () => {
+const Sigup: React.FC = () => {
   return <div>Sigup</div>;
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Categories : React.FC = () => {
+const Categories: React.FC = () => {
   return <div>Categories</div>;
 };
 
