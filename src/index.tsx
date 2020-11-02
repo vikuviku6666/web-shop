@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from "./styles/Global";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <GlobalStyle />
     <App />
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById("root")
 );
 

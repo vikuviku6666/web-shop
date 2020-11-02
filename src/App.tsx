@@ -12,7 +12,13 @@ import About from "./components/About";
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="layout">
+      <div
+        style={{
+          display: "grid",
+          height: "100vh",
+          gridTemplateRows: "auto 1fr auto",
+        }}
+      >
         <Header />
 
         <Switch>

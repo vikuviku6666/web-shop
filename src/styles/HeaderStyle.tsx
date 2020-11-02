@@ -4,7 +4,7 @@ export const Top = styled.section`
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background-color: var(--primaryColor);
+  background-color: brown;
   a {
     margin-right: 2px;
     cursor: pointer;
