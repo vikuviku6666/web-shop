@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const logo = {
   width: "70px",
   height: "35px",
+  paddingBottom: "5px"
 };
 
 const Header: React.FC = () => {
