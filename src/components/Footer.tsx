@@ -5,7 +5,7 @@ import { Bottom } from '../styles/FooterStyle';
 
 const Footer: React.FC = () => {
   return (
-    <Bottom>Footer</Bottom>
+    <Bottom>Address: Stockholm, Sweden </Bottom>
   );
 };
 
