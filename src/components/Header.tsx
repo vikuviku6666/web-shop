@@ -31,7 +31,7 @@ const Header: React.FC<IImageProps> = (props: IImageProps) => {
         <Link to="/categories">Categories</Link>
       </span>
       <span>
-        <input />
+       
         <Link to="/login">Login</Link>
         <Link to="/cart">
           <span>
