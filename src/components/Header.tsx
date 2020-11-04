@@ -23,6 +23,7 @@ const Header: React.FC = () => {
         <Link to="/categories">Categories</Link>
       </span>
       <span>
+        <input/>
         <Link to="/login">Login</Link>
         <Link to="/sigup">Sigup</Link>
       </span>
