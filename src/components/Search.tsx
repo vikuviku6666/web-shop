@@ -1,16 +1,16 @@
-import React from 'react'
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faCartArrowDown, faSearchDollar, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { SearchStyle } from '../styles/SearchStyle';
 const Search: React.FC = () => {
   return (
-    <div>
-          <span>
-            <FontAwesomeIcon icon={faSearch} /> 
-            <input type="text"/>   
-          </span>
-     
-      
-    </div>
+    <SearchStyle>
+      <label htmlFor="search">Search Movies:</label>
+      <input type="search" id="search" name="search" />
+      <button type="submit">
+        <FontAwesomeIcon icon={faSearch} />
+      </button>
+    </SearchStyle>
   );
 };
 

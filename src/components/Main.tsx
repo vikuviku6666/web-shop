@@ -53,7 +53,7 @@ const Main: React.FC<IChildProps> = (props: IChildProps) => {
   return (
     <>
       
-      <Banner myValue={movies} />
+     {/*  <Banner myValue={movies} /> */}
       <Middle>{moviesHtml}</Middle>
     </>
   );

@@ -12,7 +12,8 @@ export const Top = styled.section`
     border-radius: 5px;
     text-align: center;
     padding: 2px;
-    font-size: 10px;
+    margin-left: 40px;
+    font-size: 20px;
     text-decoration: none;
   }
   a:hover,

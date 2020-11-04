@@ -9,8 +9,8 @@ interface IImageProps {
 }
 
 const logo = {
-  width: "70px",
-  height: "35px",
+  width: "100px",
+  height: "40px",
   paddingBottom: "5px"
 };
 
