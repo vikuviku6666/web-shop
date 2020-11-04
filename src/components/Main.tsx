@@ -48,7 +48,7 @@ const Main: React.FC = () => {
 
   return (
     <>
-      <button>Go to Cart({cart.length})</button>
+      <button style={{textAlign: "end"}}>Go to Cart({cart.length})</button>
       <Banner myValue={movies} />
       <Middle>{moviesHtml}</Middle>
     </>

@@ -1,6 +1,8 @@
 import React from "react";
 import { Top } from "../styles/HeaderStyle";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
 const logo = {
   width: "70px",
   height: "35px",
@@ -23,9 +25,16 @@ const Header: React.FC = () => {
         <Link to="/categories">Categories</Link>
       </span>
       <span>
-        <input/>
+        <input />
         <Link to="/login">Login</Link>
-        <Link to="/sigup">Sigup</Link>
+        <Link to="/cart">
+          <span>
+              <FontAwesomeIcon icon={faCartArrowDown} />
+            <span>
+              8
+            </span>
+          </span>
+        </Link>
       </span>
     </Top>
   );
