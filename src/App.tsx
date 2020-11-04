@@ -30,9 +30,14 @@ const App: React.FC = () => {
           gridTemplateRows: "auto 1fr auto",
         }}
       >
-        <Header myValue={cart}></Header>
+        <div>
+        <Header myValue={cart}/>
         <Search/>
+        </div>
         <Switch>
+          <Route path="/admin">
+            <AdminPage/>
+          </Route>
           <Route path="/about">
             <About />
           </Route>
@@ -45,14 +50,11 @@ const App: React.FC = () => {
           <Route path="/cart">
             <Cart myValue={cart} />
           </Route>
-          <Route exact path="/admin">
-            <AdminPage/>
-          </Route>
           <Route exact path="/">
             <Main updateParentCart={updateChildCart} />
           </Route>
         </Switch>
-        <Footer />
+        <Footer/>
       </div>
     </Router>
   );

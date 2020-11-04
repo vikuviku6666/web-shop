@@ -6,7 +6,7 @@ import { AdminStyle } from '../styles/AdminStyle';
 const AdminPage: React.FC = () => {
     return (
       <AdminStyle>
-        <span>Admin Page </span>
+        <div>Admin Page </div>
       </AdminStyle>
     );
 }
