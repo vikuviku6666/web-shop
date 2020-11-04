@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Main from "./components/Main";
+import Main  from "./components/Main";
 import Footer from "./components/Footer";
 import Categories from "./components/Categories";
 import Login from "./components/Login";
-import Sigup from "./components/Sigup";
+import Cart from "./components/Cart";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from "./components/About";
 
@@ -19,7 +19,7 @@ const App: React.FC = () => {
           gridTemplateRows: "auto 1fr auto",
         }}
       >
-        <Header />
+        <Header/>
 
         <Switch>
           <Route path="/about">
@@ -31,8 +31,8 @@ const App: React.FC = () => {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/sigup">
-            <Sigup />
+          <Route path="/cart">
+            <Cart />
           </Route>
           <Route exact path="/">
             <Main />
