@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from "./components/About";
 import { IMovie } from './components/Main';
 import Search from './components/Search';
+import AdminPage from './components/AdminPage';
 
 
 const App: React.FC = () => {
@@ -43,6 +44,9 @@ const App: React.FC = () => {
           </Route>
           <Route path="/cart">
             <Cart myValue={cart} />
+          </Route>
+          <Route exact path="/admin">
+            <AdminPage/>
           </Route>
           <Route exact path="/">
             <Main updateParentCart={updateChildCart} />

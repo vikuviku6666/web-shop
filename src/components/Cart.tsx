@@ -1,5 +1,5 @@
 import React from "react";
-import { Middle } from "../styles/MiddleStyle";
+import { CartStyle } from "../styles/CartStyle";
 import { IMovie } from "./Main";
 interface IImageProps {
   myValue: IMovie[];
@@ -17,7 +17,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
       </div>
     );
   });
-  return <Middle>{moviesHtml}</Middle>;
+  return <CartStyle>{moviesHtml}</CartStyle>;
 };
 
 export default Cart;
