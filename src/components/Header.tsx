@@ -3,13 +3,19 @@ import { Top } from "../styles/HeaderStyle";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { IMovie } from './Main';
+interface IImageProps {
+  myValue: IMovie[];
+}
+
 const logo = {
   width: "70px",
   height: "35px",
   paddingBottom: "5px"
 };
 
-const Header: React.FC = () => {
+const Header: React.FC<IImageProps> = (props: IImageProps) => {
+ 
   return (
     <Top>
       <span>
@@ -29,10 +35,8 @@ const Header: React.FC = () => {
         <Link to="/login">Login</Link>
         <Link to="/cart">
           <span>
-              <FontAwesomeIcon icon={faCartArrowDown} />
-            <span>
-              8
-            </span>
+            <FontAwesomeIcon icon={faCartArrowDown} />
+            <span>{props.myValue.length}</span>
           </span>
         </Link>
       </span>

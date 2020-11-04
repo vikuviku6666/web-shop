@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Main  from "./components/Main";
@@ -8,8 +8,17 @@ import Login from "./components/Login";
 import Cart from "./components/Cart";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from "./components/About";
+import { IMovie } from './components/Main';
+
 
 const App: React.FC = () => {
+  const defaultValue: IMovie[] = [];
+  const [cart, setCart] = useState(defaultValue);
+  console.log(cart);
+
+  const updateChildCart = (movie: IMovie) => {
+     setCart([...cart, movie]);
+  }
   return (
     <Router>
       <div
@@ -19,7 +28,7 @@ const App: React.FC = () => {
           gridTemplateRows: "auto 1fr auto",
         }}
       >
-        <Header/>
+        <Header myValue={cart}></Header>
 
         <Switch>
           <Route path="/about">
@@ -32,10 +41,10 @@ const App: React.FC = () => {
             <Login />
           </Route>
           <Route path="/cart">
-            <Cart />
+            <Cart  />
           </Route>
           <Route exact path="/">
-            <Main />
+            <Main updateParentCart={updateChildCart}/>
           </Route>
         </Switch>
         <Footer />

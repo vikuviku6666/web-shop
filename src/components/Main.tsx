@@ -12,10 +12,14 @@ export interface IMovie {
   year: number;
 }
 
-const Main: React.FC = () => {
+interface IChildProps{
+  updateParentCart(value: IMovie): void;
+}
+
+const Main: React.FC<IChildProps> = (props: IChildProps) => {
   const defaultValue: IMovie[] = [];
   const [movies, setMovies] = useState(defaultValue);
-  const [cart, setCart] = useState(defaultValue);
+ 
 
   useEffect(() => {
     async function getData() {
@@ -28,8 +32,8 @@ const Main: React.FC = () => {
   }, []);
 
   const addToCart = (movie: IMovie) => {
-    setCart([...cart, movie]);
-  }
+    props.updateParentCart(movie);
+  };
 
   let moviesHtml = movies.map((movie: IMovie) => {
     const str = `${movie.name.slice(0, 18)}`;
@@ -48,7 +52,7 @@ const Main: React.FC = () => {
 
   return (
     <>
-      <button style={{textAlign: "end"}}>Go to Cart({cart.length})</button>
+      
       <Banner myValue={movies} />
       <Middle>{moviesHtml}</Middle>
     </>
