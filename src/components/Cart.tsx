@@ -17,7 +17,13 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
       </div>
     );
   });
-  return <CartStyle>{moviesHtml}</CartStyle>;
-};
+  return moviesHtml.length > 0 ? (
+    <CartStyle> {moviesHtml}</CartStyle>
+  ) : (
+    <CartStyle>
+      <div>Your Cart is Empty</div>
+    </CartStyle>
+  ); 
+}
 
 export default Cart;
