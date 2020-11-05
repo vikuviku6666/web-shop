@@ -5,10 +5,9 @@ import { SearchStyle } from '../styles/SearchStyle';
 const Search: React.FC = () => {
   return (
     <SearchStyle>
-      <label htmlFor="search">Search Movies:</label>
-      <input type="search" id="search" name="search" />
+      <input type="search"  id="search" name="search" />
       <button type="submit">
-        <FontAwesomeIcon icon={faSearch} />
+        <FontAwesomeIcon icon={faSearch} size="2x" />
       </button>
     </SearchStyle>
   );
