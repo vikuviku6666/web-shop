@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Middle } from "../styles/MiddleStyle";
 import axios from "axios";
 import { Banner } from "./Banner";
+import Categories from "./Categories";
 
 export interface IMovie {
   id: number;
@@ -53,7 +54,8 @@ const Main: React.FC<IChildProps> = (props: IChildProps) => {
   return (
     <>
       
-     {/*  <Banner myValue={movies} /> */}
+      <Banner myValue={movies} /> 
+      <Categories/>
       <Middle>{moviesHtml}</Middle>
     </>
   );

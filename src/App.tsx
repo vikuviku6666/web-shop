@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/Header";
 import Main  from "./components/Main";
 import Footer from "./components/Footer";
-import Categories from "./components/Categories";
 import Login from "./components/Login";
 import Cart from "./components/Cart";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -16,8 +15,6 @@ import AdminPage from './components/AdminPage';
 const App: React.FC = () => {
   const defaultValue: IMovie[] = [];
   const [cart, setCart] = useState(defaultValue);
-  console.log(cart);
-
   const updateChildCart = (movie: IMovie) => {
      setCart([...cart, movie]);
   }
@@ -40,9 +37,6 @@ const App: React.FC = () => {
           </Route>
           <Route path="/about">
             <About />
-          </Route>
-          <Route path="/categories">
-            <Categories />
           </Route>
           <Route path="/login">
             <Login />

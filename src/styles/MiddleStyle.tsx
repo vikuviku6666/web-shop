@@ -5,7 +5,7 @@ export const Middle = styled.div`
  margin: 10px;
  display: grid !important;
  grid-gap: 10px;
- grid-template-columns: repeat(5, auto);
+ grid-template-columns: repeat(4, auto);
  text-align: center;
  div {
    background-color: #faf5f5;

@@ -1,11 +1,19 @@
 import React from "react";
-import { Bottom } from '../styles/FooterStyle';
+import { Navbar, Container }from "react-bootstrap";
 
 
 
 const Footer: React.FC = () => {
   return (
-    <Bottom>Address: Stockholm, Sweden </Bottom>
+    <Container className="p-0" fluid>
+      <Navbar className="justify-content-center" expand="lg" variant="dark" bg="dark">
+        <Navbar.Brand href="#">
+          Address:<br/>
+          Stockholm<br/>
+          Sweden
+        </Navbar.Brand>
+      </Navbar>
+    </Container>
   );
 };
 
