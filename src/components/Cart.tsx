@@ -17,10 +17,11 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
       </div>
     );
   });
-  return moviesHtml.length > 0 ? (
-    <CartStyle> {moviesHtml}</CartStyle>
+  return (moviesHtml && moviesHtml.length) > 0 ? (
+    <CartStyle>{moviesHtml}</CartStyle>
   ) : (
     <CartStyle>
+      {moviesHtml}
       <div>Your Cart is Empty</div>
     </CartStyle>
   ); 

@@ -19,8 +19,7 @@ const Header: React.FC<IImageProps> = (props: IImageProps) => {
  
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="/">
-        
+      <Navbar.Brand as={Link} to="/">
         <img
           src="https://upload.wikimedia.org/wikipedia/en/7/7c/Event_Cinemas_Logo.png"
           style={logo}
@@ -30,12 +29,15 @@ const Header: React.FC<IImageProps> = (props: IImageProps) => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-         
-          <Nav.Link href="/about">Home</Nav.Link>
+          <Nav.Link as={Link} to="/">
+            Home
+          </Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href="/login">Login</Nav.Link>
-          <Nav.Link eventKey={2} href="/cart">
+          <Nav.Link as={Link} to="/login">
+            Login
+          </Nav.Link>
+          <Nav.Link as={Link} to="/cart">
             <span>
               <FontAwesomeIcon icon={faCartArrowDown} />
               <span>{props.myValue.length}</span>
