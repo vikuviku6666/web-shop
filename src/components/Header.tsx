@@ -1,5 +1,4 @@
 import React from "react";
-import { Top } from "../styles/HeaderStyle";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
