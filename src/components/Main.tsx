@@ -3,7 +3,7 @@ import { Middle } from "../styles/MiddleStyle";
 import axios from "axios";
 import { Banner } from "./Banner";
 import Categories from "./Categories";
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap';
 
 export interface IMovie {
   id: number;
@@ -37,12 +37,12 @@ const Main: React.FC<IChildProps> = (props: IChildProps) => {
     props.updateParentCart(movie);
   };
 
-  let moviesHtml = movies.map((movie: IMovie) => {
+  let moviesHtml = movies.map((movie: IMovie, idx) => {
     const str = `${movie.name.slice(0, 18)}`;
     const str2 = `${movie.description.slice(0, 130)}`;
     return (
       
-      <Card style={{ width: '19rem' }} key={movie.id} >
+      <Card style={{ width: '19rem' }} key={idx} >
   <Card.Img variant="top" src={movie.imageUrl} />
   <Card.Body>
     <Card.Title>{str}</Card.Title>
