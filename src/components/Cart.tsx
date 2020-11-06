@@ -18,9 +18,9 @@ export interface IOrderProps {
 
 const Cart: React.FC<IImageProps> = (props: IImageProps) => {
   const [state, setState] = useState({
-    companyId: 12684,
-    createdBy: "vk@gmail.com",
-   /*  totalPrice: props.myValue.reduce((a, c) => a + c.price, 0), */
+    "companyId": 12684,
+    "createdBy": "vk@gmail.com",
+    /* "totalPrice": props.myValue.reduce((a, c) => a + c.price, 0),  */
   });
   const [showCheckout, setShowCheckout] = useState(false);
   const [data, setData] = useState<IOrderProps>({
@@ -50,10 +50,10 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
 
   await axios
     .post("https://medieinstitutet-wie-products.azurewebsites.net/api/orders", {
-      companyId: state.companyId,
-      createdBy: state.createdBy,
-      /* totalPrice: state.totalPrice, */
-      orderRows: propsTo,
+      "companyId": state.companyId,
+      "createdBy": state.createdBy,
+      /* "totalPrice": state.totalPrice,  */
+      "orderRows": propsTo,
     })
     .then(function (response) {
       setData(response.data);
