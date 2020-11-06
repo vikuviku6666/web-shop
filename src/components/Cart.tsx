@@ -1,10 +1,11 @@
 import React, { useState, ChangeEvent } from "react";
 import { CartStyle } from "../styles/CartStyle";
-import { IMovie } from "./Main";
+import { IMovie } from './Main';
 import axios from "axios";
 
 interface IImageProps {
   myValue: IMovie[];
+
 }
 
 export interface IOrderProps {
@@ -18,7 +19,8 @@ export interface IOrderProps {
 const Cart: React.FC<IImageProps> = (props: IImageProps) => {
   const [state, setState] = useState({
     companyId: 12684,
-    createdBy: "Vinay8888@gmail.com",
+    createdBy: "vk@gmail.com",
+   /*  totalPrice: props.myValue.reduce((a, c) => a + c.price, 0), */
   });
   const [showCheckout, setShowCheckout] = useState(false);
   const [data, setData] = useState<IOrderProps>({
@@ -28,41 +30,38 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
     totalPrice: 0,
     orderRows: [],
   });
-/*   const propsTo = props.myValue.map(item) => {
-  return (
-    {
-      "productId": item.id,
-      "product": item.name,
-      "amount": item.price,
-    }
-  );
+  let propsTo = props.myValue.map((item: IMovie) => {
+    return (
+      {
+        "productId": item.id,
+        "product": item.name,
+        "amount": item.price,
+      }
+    );
   
-  } */
+ 
+});  
+ 
    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setState({ ...state, [e.target.name]: [e.target.value] });
-  };
-  const createOrder = (e: any) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  }
+  const createOrder = async(e: any) => {
     e.preventDefault();
 
-    axios
-      .post(
-        "https://medieinstitutet-wie-products.azurewebsites.net/api/orders",
-        {
-          companyId: state.companyId,
-          createdBy: state.createdBy,
-          totalPrice: props.myValue.reduce((a, c) => a + c.price, 0),
-          orderRows: props.myValue,
-        }
-      )
-
-      .then((res: any) => res.json())
-      .then((data: any) => {
-        setData(data);
-        console.log(data);
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
+  await axios
+    .post("https://medieinstitutet-wie-products.azurewebsites.net/api/orders", {
+      companyId: state.companyId,
+      createdBy: state.createdBy,
+      /* totalPrice: state.totalPrice, */
+      orderRows: propsTo,
+    })
+    .then(function (response) {
+      setData(response.data);
+      console.log("res:",response.data);
+    })
+    .catch(function (error) {
+      console.log("error:",error);
+    });
   };
 
 
