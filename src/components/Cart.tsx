@@ -22,7 +22,7 @@ export interface IOrderProps {
 
 const Cart: React.FC<IImageProps> = (props: IImageProps) => {
   const value = props.myValue;
- /*  const [myValue, setMyValue] = useState(value); */
+ 
   const [state, setState] = useState({
     "companyId": 12684,
     "name": "vv@gmail.com",

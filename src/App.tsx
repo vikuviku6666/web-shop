@@ -29,12 +29,12 @@ cartItem.push({ ...movie, count:1 });
      
     }
     setCart(cartItem);
-    localStorage.setItem("cartItems", JSON.stringify(cartItem));
+   
   };
   const removeFromCart = (product:IMovie) =>{
   const cartItems =cart.slice().filter((x) => x.id !== product.id);
  setCart(cartItems);
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
 };
 
   return (
