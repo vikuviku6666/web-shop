@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { AdminStyle } from "../styles/AdminStyle";
 import axios from "axios";
-
+import {  Button } from "react-bootstrap";
 export interface IOrder {
   id: number;
+  companyId: number;
   createdBy: string;
+  paymentMethod: number;
   totalPrice: number;
-  orderRows: [];
+  status: number;
+  orderRows: [
+    {
+      productId: number;
+    }
+  ];
 }
 
 const AdminPage: React.FC = () => {
@@ -22,18 +29,38 @@ const AdminPage: React.FC = () => {
     }
     getData();
   }, []);
+  const removeData = async (id:any) => {
+    axios
+        .delete(
+          `https://medieinstitutet-wie-products.azurewebsites.net/api/orders/${id}`
+        )
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+        });
+  };
+
 
     let ordersHtml = orders.map((order: IOrder) => {
       return (
-        <tr>
+        <tr key={order.id}>
           <td>{order.id}</td>
 
           <td> {order.totalPrice}</td>
           <td>{order.createdBy}</td>
           <td>
             {order.orderRows.map((item) => (
-              <div>{item}</div>
+              <div key={item.productId}>{item.productId}</div>
             ))}
+          </td>
+          <td>
+            <Button
+              variant="outline-dark"
+              type="button"
+              onClick={() => removeData(order.id)}
+            >
+              Delete
+            </Button>
           </td>
         </tr>
       );
