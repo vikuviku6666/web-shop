@@ -37,6 +37,8 @@ const AdminPage: React.FC = () => {
         .then((res) => {
           console.log(res);
           console.log(res.data);
+          const ordersTo = orders.filter(item => item.id !== id);
+        setOrders(ordersTo);
         });
   };
 
