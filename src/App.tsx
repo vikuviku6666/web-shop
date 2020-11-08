@@ -31,6 +31,12 @@ cartItem.push({ ...movie, count:1 });
     setCart(cartItem);
     localStorage.setItem("cartItems", JSON.stringify(cartItem));
   };
+  const removeFromCart = (product:IMovie) =>{
+  const cartItems =cart.slice().filter((x) => x.id !== product.id);
+ setCart(cartItems);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
+
   return (
     <Router>
       <div
@@ -55,7 +61,7 @@ cartItem.push({ ...movie, count:1 });
             <Login />
           </Route>
           <Route path="/cart">
-            <Cart myValue={cart} />
+            <Cart myValue={cart} removeItem={removeFromCart } />
           </Route>
           <Route exact path="/">
             <Main updateParentCart={updateChildCart} />

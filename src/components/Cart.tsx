@@ -5,8 +5,10 @@ import axios from "axios";
 
 interface IImageProps {
   myValue: IMovie[];
-
+  removeItem(value: IMovie): void;
 }
+
+
 
 export interface IOrderProps {
   id: number;
@@ -20,12 +22,12 @@ export interface IOrderProps {
 
 const Cart: React.FC<IImageProps> = (props: IImageProps) => {
   const value = props.myValue;
-  const [myValue, setMyValue] = useState(value);
+ /*  const [myValue, setMyValue] = useState(value); */
   const [state, setState] = useState({
     "companyId": 12684,
-    "name": "",
+    "name": "vv@gmail.com",
     "paymentMethod": "MasterCard",
-    "totalPrice": myValue.reduce((a, c) => a + c.price * c.count, 0),  
+    "totalPrice": value.reduce((a, c) => a + c.price * c.count, 0),  
   });
   const [showCheckout, setShowCheckout] = useState(false);
   const [data, setData] = useState<IOrderProps>({
@@ -37,7 +39,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
     totalPrice: 0,
     orderRows: [],
   });
-  let propsTo = myValue .map((item: IMovie) => {
+  let propsTo = value.map((item: IMovie) => {
     return (
       {
         "productId": item.id,
@@ -73,19 +75,17 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
       console.log("error:",error);
     });
   };
-const removeFromCart = (product:IMovie) =>{
-  const cartItems =myValue.slice().filter((x) => x.id !== product.id);
- setMyValue(cartItems);
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
-};
+  const removeItemFrom = (movie: IMovie) => {
+    props.removeItem(movie);
+  };
 
   return (
     <CartStyle>
-      {myValue .length === 0 ? (
+      {value.length === 0 ? (
         <div className="cart cart-header">Cart is empty</div>
       ) : (
         <div className="cart cart-header">
-          You have {myValue.length} in the cart.
+          You have {value.length} in the cart.
         </div>
       )}
 
@@ -119,7 +119,7 @@ const removeFromCart = (product:IMovie) =>{
       <div>
         <div className="cart">
           <ul className="cart-items">
-            {myValue.map((item) => (
+            {value.map((item) => (
               <li key={item.id}>
                 <div>
                   <img src={item.imageUrl} alt={item.name}></img>
@@ -130,7 +130,7 @@ const removeFromCart = (product:IMovie) =>{
                     {item.price} x {item.count}
                     <button
                           className="button"
-                          onClick={() => removeFromCart(item)}
+                          onClick={() => removeItemFrom(item)}
                         >
                           Remove
                         </button> 
@@ -140,13 +140,13 @@ const removeFromCart = (product:IMovie) =>{
             ))}
           </ul>
         </div>
-        {myValue.length !== 0 && (
+        {value.length !== 0 && (
           <div>
             <div className="cart">
               <div className="total">
                 <div>
                   Total:
-                  {myValue.reduce((a, c) => a + c.price * c.count, 0)}
+                  {value.reduce((a, c) => a + c.price * c.count, 0)}
                 </div>
                 <button
                   onClick={() => {
