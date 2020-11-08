@@ -12,7 +12,10 @@ export interface IMovie {
   price: number;
   imageUrl: string;
   year: number;
+  count: number;
+ 
 }
+
 
 interface IChildProps{
   updateParentCart(value: IMovie): void;
@@ -37,12 +40,12 @@ const Main: React.FC<IChildProps> = (props: IChildProps) => {
     props.updateParentCart(movie);
   };
 
-  let moviesHtml = movies.map((movie: IMovie, idx) => {
+  let moviesHtml = movies.map((movie: IMovie) => {
     const str = `${movie.name.slice(0, 18)}`;
     const str2 = `${movie.description.slice(0, 130)}`;
     return (
       
-      <Card style={{ width: '19rem' }} key={idx} >
+      <Card style={{ width: '19rem' }} key={movie.id} >
   <Card.Img variant="top" src={movie.imageUrl} />
   <Card.Body>
     <Card.Title>{str}</Card.Title>

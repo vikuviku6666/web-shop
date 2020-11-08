@@ -12,12 +12,25 @@ import Search from './components/Search';
 import AdminPage from './components/AdminPage';
 
 
-const App: React.FC = () => {
-  const defaultValue: IMovie[] = [];
-  const [cart, setCart] = useState(defaultValue);
-  const updateChildCart = (movie: IMovie) => {
-     setCart([...cart, movie]);
-  }
+    const App: React.FC = () => {
+    const defaultValue: IMovie[] = [];
+    const [cart, setCart] = useState(defaultValue); 
+    const updateChildCart = (movie: IMovie) => {
+    const cartItem = cart.slice();
+    let productInCart = false;
+    cartItem.forEach((item) => {
+      if(item.id === movie.id) {
+        item.count++;
+        productInCart = true;
+      }
+    });
+    if(!productInCart){
+cartItem.push({ ...movie, count:1 });
+     
+    }
+    setCart(cartItem);
+    localStorage.setItem("cartItems", JSON.stringify(cartItem));
+  };
   return (
     <Router>
       <div

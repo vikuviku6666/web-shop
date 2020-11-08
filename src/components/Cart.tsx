@@ -19,11 +19,13 @@ export interface IOrderProps {
 }
 
 const Cart: React.FC<IImageProps> = (props: IImageProps) => {
+  const value = props.myValue;
+  const [myValue, setMyValue] = useState(value);
   const [state, setState] = useState({
     "companyId": 12684,
-    "name": "vk@gmail.com",
+    "name": "",
     "paymentMethod": "MasterCard",
-    "totalPrice": props.myValue.reduce((a, c) => a + c.price, 0),  
+    "totalPrice": myValue.reduce((a, c) => a + c.price * c.count, 0),  
   });
   const [showCheckout, setShowCheckout] = useState(false);
   const [data, setData] = useState<IOrderProps>({
@@ -35,7 +37,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
     totalPrice: 0,
     orderRows: [],
   });
-  let propsTo = props.myValue.map((item: IMovie) => {
+  let propsTo = myValue .map((item: IMovie) => {
     return (
       {
         "productId": item.id,
@@ -50,7 +52,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
      console.log(e);
     setState({ ...state, [e.target.name]: e.target.value });
-  }
+  };
   const createOrder = async(e: any) => {
     e.preventDefault();
 
@@ -64,21 +66,26 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
     })
     .then(function (response) {
       setData(response.data);
+      localStorage.clear();
       console.log("res:",response.data);
     })
     .catch(function (error) {
       console.log("error:",error);
     });
   };
-
+const removeFromCart = (product:IMovie) =>{
+  const cartItems =myValue.slice().filter((x) => x.id !== product.id);
+ setMyValue(cartItems);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
 
   return (
     <CartStyle>
-      {props.myValue.length === 0 ? (
+      {myValue .length === 0 ? (
         <div className="cart cart-header">Cart is empty</div>
       ) : (
         <div className="cart cart-header">
-          You have {props.myValue.length} in the cart{" "}
+          You have {myValue.length} in the cart.
         </div>
       )}
 
@@ -101,7 +108,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
                 <div>Cart Items:</div>
                 <div>
                   {data.orderRows.map((x: any) => (
-                    <div>{x.amount}</div>
+                    <div>{x.count}{"x"}{x.amount}</div>
                   ))}
                 </div>
               </li>
@@ -112,34 +119,34 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
       <div>
         <div className="cart">
           <ul className="cart-items">
-            {props.myValue.map((item, idx) => (
-              <li key={idx}>
+            {myValue.map((item) => (
+              <li key={item.id}>
                 <div>
                   <img src={item.imageUrl} alt={item.name}></img>
                 </div>
                 <div>
                   <div>{item.name}</div>
                   <div className="right">
-                    {item.price}
-                    {/* <button
+                    {item.price} x {item.count}
+                    <button
                           className="button"
-                          onClick={() => props.removeFromCart(item)}
+                          onClick={() => removeFromCart(item)}
                         >
                           Remove
-                        </button> */}
+                        </button> 
                   </div>
                 </div>
               </li>
             ))}
           </ul>
         </div>
-        {props.myValue.length !== 0 && (
+        {myValue.length !== 0 && (
           <div>
             <div className="cart">
               <div className="total">
                 <div>
                   Total:
-                  {props.myValue.reduce((a, c) => a + c.price, 0)}
+                  {myValue.reduce((a, c) => a + c.price * c.count, 0)}
                 </div>
                 <button
                   onClick={() => {

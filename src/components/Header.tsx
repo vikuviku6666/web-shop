@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
@@ -15,8 +15,8 @@ const logo = {
 };
 
 const Header: React.FC<IImageProps> = (props: IImageProps) => {
- 
-  return (
+  const { myValue } = props;
+ return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand as={Link} to="/">
         <img
@@ -39,7 +39,7 @@ const Header: React.FC<IImageProps> = (props: IImageProps) => {
           <Nav.Link as={Link} to="/cart">
             <span>
               <FontAwesomeIcon icon={faCartArrowDown} />
-              <span>{props.myValue.length}</span>
+              <span>{myValue.length}</span>
             </span>
           </Nav.Link>
         </Nav>
