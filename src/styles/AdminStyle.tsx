@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AdminStyle = styled.div`
+export const AdminStyle = styled.section`
  
   .orders {
     width: 100%;

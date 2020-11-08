@@ -11,7 +11,9 @@ interface IImageProps {
 export interface IOrderProps {
   id: number;
   companyId: number;
+  name: string;
   createdBy: string;
+  paymentMethod: string;
   totalPrice: number;
   orderRows: [];
 }
@@ -19,14 +21,17 @@ export interface IOrderProps {
 const Cart: React.FC<IImageProps> = (props: IImageProps) => {
   const [state, setState] = useState({
     "companyId": 12684,
-    "createdBy": "vk@gmail.com",
-    /* "totalPrice": props.myValue.reduce((a, c) => a + c.price, 0),  */
+    "name": "vk@gmail.com",
+    "paymentMethod": "MasterCard",
+    "totalPrice": props.myValue.reduce((a, c) => a + c.price, 0),  
   });
   const [showCheckout, setShowCheckout] = useState(false);
   const [data, setData] = useState<IOrderProps>({
     id: 0,
     companyId: 12684,
     createdBy: "",
+    name:"",
+    paymentMethod: "",
     totalPrice: 0,
     orderRows: [],
   });
@@ -34,7 +39,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
     return (
       {
         "productId": item.id,
-        "product": item.name,
+        "product": null,
         "amount": item.price,
       }
     );
@@ -43,6 +48,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
 });  
  
    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+     console.log(e);
     setState({ ...state, [e.target.name]: e.target.value });
   }
   const createOrder = async(e: any) => {
@@ -51,8 +57,9 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
   await axios
     .post("https://medieinstitutet-wie-products.azurewebsites.net/api/orders", {
       "companyId": state.companyId,
-      "createdBy": state.createdBy,
-      /* "totalPrice": state.totalPrice,  */
+      "createdBy": state.name,
+      "paymentMethod": state.paymentMethod,
+      "totalPrice": state.totalPrice,
       "orderRows": propsTo,
     })
     .then(function (response) {
@@ -78,7 +85,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
       {data.id > 0 && (
         <div>
           <div className="order-details">
-            <h3 className="success-message">Your order </h3>
+            <h3 className="success-message">Your order have been placed </h3>
             <h2>Order {data.id}</h2>
             <ul>
               <li>
@@ -94,7 +101,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
                 <div>Cart Items:</div>
                 <div>
                   {data.orderRows.map((x: any) => (
-                    <div>{x.title}</div>
+                    <div>{x.amount}</div>
                   ))}
                 </div>
               </li>

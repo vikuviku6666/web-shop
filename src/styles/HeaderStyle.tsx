@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Top = styled.section`
+export const Top = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 10px;

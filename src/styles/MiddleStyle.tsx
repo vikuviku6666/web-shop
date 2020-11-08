@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
-export const Middle = styled.div`
+export const Middle = styled.section`
   padding: 10px;
-  margin: 10px;
+  margin: 10px auto;
   display: grid !important;
   grid-row-gap: 10px;
   grid-column-gap: 5px;
   grid-template-columns: repeat(3, auto);
   text-align: center;
+  border: 2px solid red;
+  
   div {
     color: black;
   }

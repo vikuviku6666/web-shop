@@ -4,42 +4,52 @@ interface IImageProps {
   myValue: any[];
 }
 const containerStyle = {
-  height: "700px",
-  width: "800px",
+  width: "30%",
+  marginTop: "2%",
+  marginLeft: "auto",
+  marginRight: "auto",
+  
 };
-const styles = {
-  marginTop: "10px",
-  marginLeft: "10%",
-  marginRight: "10%",
+const itemStyle = {
+  width: "100%", 
+  height: "20%", 
+  marginTop: "2%",
+  marginLeft: "auto",
+  marginRight: "auto",
+};
+
+const style = {
+ width: "100%",
+  
 };
 
 export const Banner: React.FC<IImageProps> = (props: IImageProps) => {
   const imageValue: IImageProps[] = [];
   props.myValue.map((i) => imageValue.push(i.imageUrl));
   return (
-    <Carousel style={styles}>
-      <Carousel.Item>
+    <Carousel style={containerStyle} >
+      <Carousel.Item style={itemStyle}>
         <img
-          className="d-block w-100"
+         
           src={`${imageValue[0]}`}
           alt="First slide"
-          style={containerStyle}
+          style={style}
         />
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item style={itemStyle}>
         <img
-          className="d-block w-100"
+          
           src={`${imageValue[1]}`}
           alt="Third slide"
-          style={containerStyle}
+          style={style}
         />
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item style={itemStyle}>
         <img
-          className="d-block w-100"
+          
           src={`${imageValue[2]}`}
           alt="Third slide"
-          style={containerStyle}
+          style={style}
         />
       </Carousel.Item>
     </Carousel>

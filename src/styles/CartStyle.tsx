@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CartStyle = styled.div`
+export const CartStyle = styled.section`
   .cart {
     padding: 1rem;
     margin: 1rem;
