@@ -33,8 +33,8 @@ const Header: React.FC<IImageProps> = (props: IImageProps) => {
           </Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link as={Link} to="/login">
-            Login
+          <Nav.Link as={Link} to="/admin">
+            admin
           </Nav.Link>
           <Nav.Link as={Link} to="/cart">
             <span>
