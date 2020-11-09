@@ -14,8 +14,8 @@ export const SearchStyle = styled.section`
     color: black;
   }
   img {
-    height: 70%;
-    width: 90%;
+    height: 60%;
+    width: 100%;
     text-align: center;
   }
   p {
