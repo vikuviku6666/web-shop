@@ -32,7 +32,17 @@ cartItem.push({ ...movie, count:1 });
    
   };
   const removeFromCart = (product:IMovie) =>{
-  const cartItems =cart.slice().filter((x) => x.id !== product.id);
+     const cartItems = cart.slice();
+    let productInCart = false;
+    cartItems.forEach((item) => {
+      if(item.id === product.id) {
+        item.count--;
+        productInCart = true;
+      }
+    });
+     if(!productInCart){
+       const cartItems =cart.slice().filter((x) => x.id !== product.id);
+    }
  setCart(cartItems);
 
 };
