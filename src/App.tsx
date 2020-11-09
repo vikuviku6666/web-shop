@@ -48,7 +48,7 @@ cartItem.push({ ...movie, count:1 });
 
 };
   const clearItemFrom = (product:IMovie) =>{
-     const cartItem = cart.slice();
+     
       setCart([]);
 
 };
