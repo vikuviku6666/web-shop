@@ -45,7 +45,7 @@ const Main: React.FC<IChildProps> = (props: IChildProps) => {
     const str2 = `${movie.description.slice(0, 130)}`;
     return (
       
-      <Card style={{ width: '19rem' }} key={movie.id} >
+      <Card style={{ width: '16rem' }} key={movie.id} >
   <Card.Img variant="top" src={movie.imageUrl} />
   <Card.Body>
     <Card.Title>{str}</Card.Title>
@@ -61,7 +61,7 @@ const Main: React.FC<IChildProps> = (props: IChildProps) => {
   return (
     <>
       
-      <Banner myValue={movies} /> 
+      {/* <Banner myValue={movies} />  */}
       <Categories/>
       <Middle>{moviesHtml}</Middle>
     </>
