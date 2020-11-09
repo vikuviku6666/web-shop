@@ -13,7 +13,7 @@ interface IImageProps {
 export interface IOrderProps {
   id: number;
   companyId: number;
-  name: string;
+  email: string;
   createdBy: string;
   paymentMethod: string;
   totalPrice: number;
@@ -25,7 +25,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
  
   const [state, setState] = useState({
     "companyId": 12684,
-    "name": "vv@gmail.com",
+    "email": "vv@gmail.com",
     "paymentMethod": "MasterCard",
     "totalPrice": value.reduce((a, c) => a + c.price * c.count, 0),  
   });
@@ -34,7 +34,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
     id: 0,
     companyId: 12684,
     createdBy: "",
-    name:"",
+    email:"",
     paymentMethod: "",
     totalPrice: 0,
     orderRows: [],
@@ -52,7 +52,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
 });  
  
    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-     console.log(e);
+     
     setState({ ...state, [e.target.name]: e.target.value });
   };
   const createOrder = async(e: any) => {
@@ -61,7 +61,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
   await axios
     .post("https://medieinstitutet-wie-products.azurewebsites.net/api/orders", {
       "companyId": state.companyId,
-      "createdBy": state.name,
+      "createdBy": state.email,
       "paymentMethod": state.paymentMethod,
       "totalPrice": state.totalPrice,
       "orderRows": propsTo,
