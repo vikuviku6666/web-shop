@@ -1,25 +1,45 @@
 import styled from "styled-components";
 
-export const SearchStyle = styled.form`
-  margin-left: 20%;
-  margin-right: 20%;
-  input {
-    width: 92%;
-    height: 44px;
-    box-sizing: border-box;
-    border: 2px solid;
-    border-radius: 6px;
-    font-size: 20px;
-    background-color: #fff;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    margin-top: 10px;
-   
+export const SearchStyle = styled.section`
+  padding: 10px;
+  margin: 10px auto;
+  display: grid !important;
+  grid-row-gap: 10px;
+  grid-column-gap: 5px;
+  grid-template-columns: repeat(5, auto);
+  text-align: center;
+  /*  border: 2px solid red; */
+
+  div {
+    color: black;
   }
-  button {
-    padding-bottom: 5px;
-    background-color: #fff;
-    border: 2px solid;
-    border-radius: 6px;
+  img {
+    height: 70%;
+    width: 90%;
+    text-align: center;
+  }
+  p {
+    font-size: 10.5px;
+
+    text-align: center;
+  }
+  /*  Button {
+    opacity: 0;
+  }
+  Button:hover,
+  Button:focus {
+    opacity: 100%;
+  } */
+  @media (max-width: 1400px) {
+    grid-template-columns: repeat(4, auto);
+  }
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(3, auto);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(1, auto);
   }
 `;

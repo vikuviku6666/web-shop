@@ -9,16 +9,16 @@ const Categories: React.FC = () => {
         aria-label="Toolbar with Button groups"
       >
         <ButtonGroup  aria-label="First group">
-          <Button href="#" className="mr-5" size="lg" variant="outline-dark">
+          <Button href="#" className="mr-3" size="lg" variant="outline-dark">
             Action
           </Button>
-          <Button href="#" className="mr-5" size="lg" variant="outline-dark">
+          <Button href="#" className="mr-3" size="lg" variant="outline-dark">
             Drama
           </Button>
-          <Button href="#" className="mr-5" size="lg" variant="outline-dark">
+          <Button href="#" className="mr-3" size="lg" variant="outline-dark">
             comedy
           </Button>
-          <Button href="#" className="mr-5" size="lg" variant="outline-dark">
+          <Button href="#" className="mr-3" size="lg" variant="outline-dark">
             Thriller
           </Button>
         </ButtonGroup>
