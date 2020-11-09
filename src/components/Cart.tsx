@@ -55,6 +55,8 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
      
     setState({ ...state, [e.target.name]: e.target.value });
   };
+
+  /* order creating */
   const createOrder = async(e: any) => {
     e.preventDefault();
 
@@ -68,13 +70,15 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
     })
     .then(function (response) {
       setData(response.data);
-      localStorage.clear();
+     
       console.log("res:",response.data);
     })
     .catch(function (error) {
       console.log("error:",error);
     });
   };
+
+  /* Lifting up state */
   const removeItemFrom = (movie: IMovie) => {
     props.removeItem(movie);
   };

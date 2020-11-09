@@ -32,18 +32,19 @@ cartItem.push({ ...movie, count:1 });
    
   };
   const removeFromCart = (product:IMovie) =>{
-     const cartItems = cart.slice();
+     const cartItem = cart.slice();
     let productInCart = false;
-    cartItems.forEach((item) => {
-      if(item.id === product.id) {
-        item.count--;
-        productInCart = true;
-      }
-    });
-     if(!productInCart){
-       const cartItems =cart.slice().filter((x) => x.id !== product.id);
-    }
- setCart(cartItems);
+    cartItem.forEach((item) => {
+       if(item.id === product.id && item.count >1) {
+          item.count--;
+          productInCart = true;
+        }
+       setCart(cartItem); 
+      });
+        if(!productInCart){
+          const cartItem =cart.slice().filter((x) => x.id !== product.id);
+          setCart(cartItem);
+       }
 
 };
 
