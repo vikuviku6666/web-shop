@@ -47,6 +47,11 @@ cartItem.push({ ...movie, count:1 });
        }
 
 };
+  const clearItemFrom = (product:IMovie) =>{
+     const cartItem = cart.slice();
+      setCart([]);
+
+};
 
   return (
     <Router>
@@ -72,7 +77,7 @@ cartItem.push({ ...movie, count:1 });
             <Login />
           </Route>
           <Route path="/cart">
-            <Cart myValue={cart} removeItem={removeFromCart } />
+            <Cart myValue={cart} removeItem={removeFromCart } clearItem={clearItemFrom}/>
           </Route>
           <Route exact path="/">
             <Main updateParentCart={updateChildCart} />

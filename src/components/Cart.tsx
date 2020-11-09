@@ -6,6 +6,7 @@ import axios from "axios";
 interface IImageProps {
   myValue: IMovie[];
   removeItem(value: IMovie): void;
+  clearItem(value: IMovie): void;
 }
 
 
@@ -55,7 +56,9 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
      
     setState({ ...state, [e.target.name]: e.target.value });
   };
-
+const clearItemFrom = (value:any) => {
+    props.clearItem(value);
+  };
   /* order creating */
   const createOrder = async(e: any) => {
     e.preventDefault();
@@ -69,9 +72,9 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
       "orderRows": propsTo,
     })
     .then(function (response) {
-      setData(response.data);
-     
       console.log("res:",response.data);
+      setData(response.data);
+     clearItemFrom(value);
     })
     .catch(function (error) {
       console.log("error:",error);
@@ -112,7 +115,7 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
                 <div>Cart Items:</div>
                 <div>
                   {data.orderRows.map((x: any) => (
-                    <div>{x.count}{"x"}{x.amount}</div>
+                    <div key={x.id}>{x.count}{"x"}{x.amount}</div>
                   ))}
                 </div>
               </li>
