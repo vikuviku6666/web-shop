@@ -51,11 +51,12 @@ const Cart: React.FC<IImageProps> = (props: IImageProps) => {
   
  
 });  
- 
+ /* Form from customer */
    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
      
     setState({ ...state, [e.target.name]: e.target.value });
   };
+  /* to clear cart */
 const clearItemFrom = (value:any) => {
     props.clearItem(value);
   };
