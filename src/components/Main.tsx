@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Middle } from "../styles/MiddleStyle";
 import axios from "axios";
 import { Banner } from "./Banner";
-import Categories from "./Categories";
+/* import Categories from "./Categories"; */
 import { Card, Button } from 'react-bootstrap';
 
 export interface IMovie {
@@ -60,9 +60,8 @@ const Main: React.FC<IChildProps> = (props: IChildProps) => {
 
   return (
     <>
-      
-      {/* <Banner myValue={movies} />  */}
-      <Categories/>
+       <Banner myValue={movies} />  
+     {/*  <Categories/> */}
       <Middle>{moviesHtml}</Middle>
     </>
   );
